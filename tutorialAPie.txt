@@ -1,0 +1,70 @@
+para empezar un archivo con node necesitamos inicializarlo con npm init
+
+express nos va a ayudar en la comunicacion con el protocolo http
+
+al principio de nuestro indexjs se usa el use strict 
+para indicarle que se va a utilizar la nueva version de ES 
+
+
+body-parser instalaremos esta libreria para cuando se requiera
+manda post o put con cuerpo (peticiones con cuerpo)
+sde pueda parsear..
+Esta libreria funciona como middleware (express) funciona tambien 
+con estas capas y cada peticion que se realiza pasan por estas capas
+
+
+una libreria que se encarga de recargar el servidor por nosotros
+(automatizar el node index.js) se llama nodemon 
+
+una vez instalado procedemos a usar en el archivo de manifiesto
+la siguiente instruccion
+"start":"nodemon index.js"
+
+una vez indicado eso en el archivo de manifiesto podemos usar el
+comando npm start e inicializa con ese archivo
+
+
+Una API para que pueda considerarse restFull debe de contener 
+PUT POST GET DELETE
+
+GET .- Peticiones al servidor a traves de una URL el server responde con datos
+
+POST .- Envia datos en los cuerpos del mensaje y no en la cabeceras.
+
+DELETE.- Peticion que se hace desde el cliente para decirle al server queborraremos
+algo a la BD.
+
+PUT .- es para actualizar 
+
+FORMATO 200 OK-
+        300.- REDIRECCION
+        400-CUANDO NO EXISTE EL RESOURCE (ERRORES).
+        500- CUANDO HAY ERRORES DEL SERVIDOR.
+PUT Y POST USAN BODY DONDE INDICAN LOS DATOS Y HEADERS (AUTORIZADO,
+NAVEGADOR, ETC...)
+
+Las peticiones dependen del verbo ((GET POST PUT, ETC))
+express ayuda a resolver desde donde venga
+
+
+mongo corre con "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
+
+necesitamos un driver para conectarnos a la bd, en este 
+caso usaremos mongoose que es una libreria que hace la chamba
+
+mongoose cuenta con un metodo que se llama conect 
+que nos permite conectarnos a la bd, lo primero que debemos 
+de hacer es que la bd este corriendo y posteriormente laAPI
+
+start mongod----empezar la bd
+
+agregamos schemas que son modelos
+y tenemos que hacerlo visible con la ultima linea
+mongoose.model('Product',ProductSchema);
+
+para poder utilizarlo como no es una libreria de node 
+sino que es algo que estamos definiendo se le indica la ruta donde hagamos el require
+
+const Product = require('./models/product');
+
+
